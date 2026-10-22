@@ -1,0 +1,7 @@
+SELECT 
+  DATE_TRUNC(DATE(created_at),MONTH) AS mes,
+  COUNT(*) AS total_ordenes
+FROM `bigquery-public-data.thelook_ecommerce.orders`
+GROUP BY mes
+HAVING COUNT(*) > 3000
+ORDER BY total_ordenes DESC
